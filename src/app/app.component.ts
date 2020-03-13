@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+//import { NgForm } from '@angular/forms';
 import { BooksSearchService } from './services/books-search.service';
 import { Books } from './model/books.model';
 
@@ -12,19 +12,32 @@ export class AppComponent {
   
   constructor(private booksSearchService: BooksSearchService) {}
 
-  books: Books[]
+  books: Books[];
 
-  onSubmit(f: NgForm) {
-    const searchQuery: string = f.form.value.search;
+  onInput(searchQuery) {
+    //console.log(searchQuery);
     this.booksSearchService.getBooks(searchQuery)
     .subscribe(
       response => {
           this.books = response.items;
-          for(let i=0; i<this.books.length; i++) {
-            console.log(this.books[i]);
-          }
+          // for(let i=0; i<this.books.length; i++) {
+          //   console.log(this.books[i]);
+          // }
       }
     );
   }
+
+  // onSubmit(searchQuery) {
+  //   const searchQuery: string = f.form.value.search;
+  //   this.booksSearchService.getBooks(searchQuery)
+  //   .subscribe(
+  //     response => {
+  //         this.books = response.items;
+  //         for(let i=0; i<this.books.length; i++) {
+  //           console.log(this.books[i]);
+  //         }
+  //     }
+  //   );
+  // }
 
 }
