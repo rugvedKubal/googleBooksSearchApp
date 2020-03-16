@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-md-12">
+      <form #f="ngForm">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-12">
+              <label for="search"><h4>Search Books</h4></label>
+              <input class="form-control" type="text" name="search" id="search" (input)="onInput(f.form.value.search)" ngModel required>
+            </div>
+          </div>  
+        </div>
+      </form>
+    </div>
+  </div>
