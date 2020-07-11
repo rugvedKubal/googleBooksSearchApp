@@ -1,8 +1,10 @@
 <div class="row">
-    <div class="col-xs-2" *ngFor="let book of books">
+    <div id="book-list" class="col-xs-2" *ngFor="let book of books; let i = index">
       <img class="img-thumbnail" *ngIf="!book.volumeInfo.imageLinks" src="https://i.imgur.com/J5LVHEL.jpg" [alt]="book.volumeInfo.title" 
       style="width: 200px; height: 200px; object-fit: cover;">
-      <img class="img-thumbnail" *ngIf="book.volumeInfo.imageLinks" [src]="book.volumeInfo.imageLinks.thumbnail" [alt]="book.volumeInfo.title" 
-      style="width: 200px; height: 200px; object-fit: cover;">
+      <a [routerLink]="i" routerLinkActive="active">
+        <img class="img-thumbnail" *ngIf="book.volumeInfo.imageLinks" [src]="book.volumeInfo.imageLinks.thumbnail" [alt]="book.volumeInfo.title" 
+        style="width: 200px; height: 200px; object-fit: cover;">
+      </a>
     </div>
   </div>

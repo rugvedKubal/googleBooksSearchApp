@@ -1,0 +1,20 @@
+<div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <img id="book-cover" class="img-responsive" *ngIf="book.volumeInfo.imageLinks" [src]="book.volumeInfo.imageLinks.thumbnail" [alt]="book.volumeInfo.title">
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="row">
+                  <h2>{{ book.volumeInfo.title }}</h2> 
+                  <p class="display-inline">by</p>
+                  <div class="display-inline" *ngFor="let author of book.volumeInfo.authors"> {{ author }} (Author)</div>
+            </div>
+            <br>
+            <div class="row">
+                  <p><b>Description: </b> {{ book.volumeInfo.description }}</p>
+            </div>
+            <br>
+            <div class="row">
+                  <b>Rating: </b>{{ book.volumeInfo.averageRating }}<span class="glyphicon glyphicon-star"> </span>
+            </div>
+      </div>
+</div>
